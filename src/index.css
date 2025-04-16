@@ -1,0 +1,24 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🎨 Modo claro (por defecto si no hay soporte para prefers-color-scheme) */
+body {
+  background-color: #ffffff;
+  color: #1f2937; /* gris oscuro (text-gray-800) */
+}
+
+/* 🌑 Modo oscuro (se activa si el usuario tiene tema oscuro en el sistema) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111827; /* bg-gray-900 */
+    color: #f9fafb; /* text-white */
+  }
+}
