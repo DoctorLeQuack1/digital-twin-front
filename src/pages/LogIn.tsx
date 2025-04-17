@@ -3,7 +3,7 @@ import lottie from 'lottie-web';
 import animationData from '../assets/smart_city.json'; // asegúrate de tenerlo en esta ruta
 import { LoginForm } from '../components/LoginForm';
 
-export const Home = () => {
+export const LogIn = () => {
   const animationContainer = useRef(null);
 
   useEffect(() => {

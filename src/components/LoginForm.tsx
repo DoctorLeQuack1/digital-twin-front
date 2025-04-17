@@ -1,9 +1,14 @@
 
 import { Button, Checkbox, Label, TextInput, createTheme, ThemeProvider } from "flowbite-react";
 import { useState } from "react";
+import { loginFunction } from "../api/user_login";
 
 export const LoginForm = () => {
 
+  const [loginData, setData] = useState({
+    email  : "",
+    password: "",
+  });
   
 
   const customTheme = createTheme({
@@ -23,16 +28,33 @@ export const LoginForm = () => {
     },
   });
 
-  const clickHandler = (e : any) => {
+  const submitHandler = (e : any) => {
     e.preventDefault();
-    console.log("Formulario enviado");
+    setData({
+      email: "",
+      password : ""
+    });
+    console.log(loginData);
+    loginFunction(loginData);
+  };
+
+  const handleFormChange = (e : any) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    console.log(value);
+    setData((prev) => ({
+      ...prev, 
+      [name] : value
+    }));
   };
 
 
   return (
 
     <ThemeProvider theme={customTheme}>
-      <form className="flex max-w-md flex-col gap-4">
+      <form 
+      onSubmit={(e : any) => submitHandler(e)}
+      className="flex max-w-md flex-col gap-4">
         <div>
           <div className="mb-2 block">
             <Label htmlFor="email1">Your email</Label>
@@ -42,6 +64,9 @@ export const LoginForm = () => {
             type="email"
             placeholder="name@email.com"
             required
+            name="email"
+            value={loginData.email}
+            onChange={handleFormChange}
             onInvalid={(e) => e.currentTarget.setCustomValidity("Please, enter a valid email")}
             onInput={(e) => e.currentTarget.setCustomValidity("")}
           />
@@ -55,6 +80,9 @@ export const LoginForm = () => {
             type="password"
             placeholder="tell your secrets"
             required
+            name="password"
+            value={loginData.password}
+            onChange={handleFormChange}
             onInvalid={(e) => e.currentTarget.setCustomValidity("Please, enter valid password")}
             onInput={(e) => e.currentTarget.setCustomValidity("")}
           />
@@ -63,7 +91,7 @@ export const LoginForm = () => {
           <Checkbox id="remember" />
           <Label htmlFor="remember">Remember me</Label>
         </div>
-        <Button type="submit" onSubmit={(e) => clickHandler(e)}>Submit</Button>
+        <Button type="submit">Log In</Button>
       </form>
     </ThemeProvider>
   );
