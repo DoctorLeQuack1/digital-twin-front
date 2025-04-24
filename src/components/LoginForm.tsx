@@ -2,8 +2,11 @@
 import { Button, Checkbox, Label, TextInput, createTheme, ThemeProvider } from "flowbite-react";
 import { useState } from "react";
 import { loginFunction } from "../api/user_login";
+import { useNavigate } from "react-router";
 
 export const LoginForm = () => {
+
+  const navigate = useNavigate();
 
   const [loginData, setData] = useState({
     email  : "",
@@ -28,14 +31,20 @@ export const LoginForm = () => {
     },
   });
 
-  const submitHandler = (e : any) => {
+  const submitHandler = async (e : any) => {
     e.preventDefault();
-    setData({
-      email: "",
-      password : ""
-    });
-    console.log(loginData);
-    loginFunction(loginData);
+    try {
+      const response : any = await loginFunction(loginData);
+      setData({
+        email: "",
+        password : ""
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(`Something went wrong.`)
+    }finally {
+      navigate("/dashboard");
+    }
   };
 
   const handleFormChange = (e : any) => {
