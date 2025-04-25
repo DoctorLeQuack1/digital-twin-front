@@ -1,21 +1,33 @@
 // components/ProtectedRoute.jsx
 import { Navigate } from 'react-router-dom';
-import { ReactNode } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
+import { auth_user } from '../api/auth_user';
 
 interface ProtectedRouteProps {
     children: ReactNode;
-  }
-  
-  export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const token = localStorage.getItem('JWT');
+}
 
+export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
+    const [isAuth, setIsAuth] = useState<boolean | null>(null);
 
-  console.log(`Your auth token is: ${token}`);
-  if (!token) {
-    return <Navigate to="/404" replace />;
-  }
+    useEffect(() => {
+        const checkAuth = async () => {
+            const result = await auth_user();
+            setIsAuth(result);
+        };
+        checkAuth();
+    }, []);
 
-  return children;
+    // Mostrar una pantalla de carga opcional
+    if (isAuth === null) {
+        return <div>Cargando...</div>; // o spinner
+    }
+
+    if (!isAuth) {
+        return <Navigate to="/404" replace />;
+    }
+
+    return children;
 };
 

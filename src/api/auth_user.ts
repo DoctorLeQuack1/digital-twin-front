@@ -1,24 +1,25 @@
 import axios from "axios";
 
 export const auth_user = async () => {
+  const token = localStorage.getItem("JWT");
 
-    try {
-        const token = localStorage.getItem('JWT');
-        const response = await axios.get('http://localhost:3001/auth/validation', {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            }
-        });
-        if (response.status == 200 && response.data.valid) {
-            return true;
-        } else {
-            return false;
-        }
-        console.log(response.data)
-    } catch (error) {
-        console.error("Something went wrong.");
-        return false;
-    }
+  if (!token) {
+    console.error("No token found.");
+    return false;
+  }
 
+  try {
+    const response = await axios.get("http://localhost:3001/auth/validation", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
+    // Aquí puedes adaptar según lo que devuelve tu backend
+    console.log(response.status)
+    return response.status === 200;
+  } catch (error: any) {
+    console.error("Validation failed:");
+    return false;
+  }
 };

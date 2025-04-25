@@ -1,9 +1,11 @@
 
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle, createTheme, ThemeProvider } from "flowbite-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export const NavBar = () => {
 
+    const { isAuth } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -15,10 +17,24 @@ export const NavBar = () => {
         },
     });
 
-    const navigateLogin = (e : any, path : string) => {
+    const navigateLogin = (e: any, path: string) => {
         e.preventDefault();
         navigate(path);
     };
+
+    const signOut = (e: any) => {
+        e.preventDefault();
+        localStorage.clear();
+        navigate("/");
+    };
+
+    let logInSignInButton = null;
+
+    if (location.pathname !== "/login" && !isAuth) {
+        logInSignInButton = (<div className="flex md:order-2"> <Button onClick={(e) => { navigateLogin(e, "/login") }}>Log In</Button></div>);
+    } else if (location.pathname !== "/login" && isAuth){
+        logInSignInButton = (<div className="flex md:order-2"> <Button onClick={(e) => { signOut(e) }}>Sign Out</Button></div>);
+    }
 
     return (
         <div className="sticky top-0 z-50 backdrop-blur-md">
@@ -29,16 +45,16 @@ export const NavBar = () => {
                         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white text-black">Wolf Quest</span>
                     </NavbarBrand>
 
-                    {location.pathname !== "/login" && <div className="flex md:order-2"> <Button onClick={(e) => {navigateLogin(e, "/login")}}>Log In</Button></div>}
+                    {logInSignInButton}
 
                     <NavbarToggle />
 
                     <NavbarCollapse>
-                        <NavbarLink onClick={(e) => {navigateLogin(e, "/")}}>
+                        <NavbarLink onClick={(e) => { navigateLogin(e, "/") }}>
                             Home
                         </NavbarLink>
-                        <NavbarLink onClick={(e) => {navigateLogin(e, "/")}}>About</NavbarLink>
-                        <NavbarLink onClick={(e) => {navigateLogin(e, "/")}}>Contact</NavbarLink>
+                        <NavbarLink onClick={(e) => { navigateLogin(e, "/") }}>About</NavbarLink>
+                        <NavbarLink onClick={(e) => { navigateLogin(e, "/") }}>Contact</NavbarLink>
                     </NavbarCollapse>
                 </Navbar>
             </ThemeProvider>

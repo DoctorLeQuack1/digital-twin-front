@@ -4,25 +4,29 @@ import { AppFooter } from "./components/AppFooter";
 import { LogIn } from "./pages/LogIn";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Dashboard } from "./components/Dashboard";
+import { AuthProvider } from "./context/AuthProvider";
 import "./App.css"
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <NavBar/>
-      <Routes>
-      <Route path="/login" element={<LogIn />} />
-      <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-      <Route path="/404" element={<h1>Page Not Found</h1>}/>
-      </Routes>
-      <AppFooter/>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/login" element={<LogIn />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/404" element={<h1>Page Not Found</h1>} />
+          <Route path="/*" element={<h1>Page Not Found</h1>} />
+        </Routes>
+        <AppFooter />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
