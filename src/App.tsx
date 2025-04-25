@@ -1,5 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
+import { AppFooter } from "./components/AppFooter";
 import { LogIn } from "./pages/LogIn";
 import { PageFooter } from "./components/PageFooter";
 import { ProtectedRoute } from "./components/ProtectedRoute";
@@ -22,7 +23,7 @@ export const App = () => {
         />
       <Route path="/404" element={<h1>Page Not Found</h1>}/>
       </Routes>
-      <PageFooter/>
+      <AppFooter/>
     </BrowserRouter>
   );
 }
