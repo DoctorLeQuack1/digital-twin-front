@@ -1,19 +1,20 @@
 
 import { Button, Checkbox, Label, TextInput, createTheme, ThemeProvider } from "flowbite-react";
 import { useState } from "react";
-import { loginFunction } from "../api/user_login";
+import { loginFunction } from "../../api/user_login";
 import { useNavigate } from "react-router";
+import { useAuth } from "../../context/AuthProvider";
+import { auth_user } from "../../api/auth_user";
 
 export const LoginForm = () => {
 
   const navigate = useNavigate();
-
+  const { setIsAuth } = useAuth();
   const [loginData, setData] = useState({
     email  : "",
     password: "",
   });
   
-
   const customTheme = createTheme({
     textInput: {
       "field": {
@@ -34,15 +35,26 @@ export const LoginForm = () => {
   const submitHandler = async (e : any) => {
     e.preventDefault();
     try {
+      // Here we call the API to fetch our JWT
       const response : any = await loginFunction(loginData);
       setData({
         email: "",
         password : ""
       });
+
+      // If the response is successful, then we store the token on localstorage
       if (response.status == "200") {
+
         console.log(response.data);
         localStorage.setItem('JWT', response.data.token);
-      } else {
+        localStorage.setItem('UserName', response.data.user_name);
+        localStorage.setItem('UserLastName', response.data.user_last_name);
+
+        setIsAuth(await auth_user());
+        // Once we have the token, we proceed to modify our isAuth value
+      } 
+      
+      else {
         console.log("Something went wrong.");
       }
     } catch (error) {

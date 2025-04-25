@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import animationData from '../assets/smart_city.json'; // asegúrate de tenerlo en esta ruta
-import { LoginForm } from '../components/LoginForm';
+import { LoginForm } from '../components/login-components/LoginForm';
 
 export const LogIn = () => {
   const animationContainer = useRef(null);
@@ -19,7 +19,7 @@ export const LogIn = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center items-center md:gap-30 w-full min-h-screen">
+    <div className="flex flex-wrap justify-center items-center md:gap-30 w-full h-screen">
       <div>
         <LoginForm />
       </div>

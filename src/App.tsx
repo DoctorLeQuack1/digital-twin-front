@@ -1,19 +1,29 @@
-import { BrowserRouter, Route, Routes } from "react-router";
-import { NavBar } from "./components/NavBar";
-import { AppFooter } from "./components/AppFooter";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { NavBar } from "./components/layout-components/NavBar";
+import { AppFooter } from "./components/layout-components/AppFooter";
 import { LogIn } from "./pages/LogIn";
-import { ProtectedRoute } from "./components/ProtectedRoute";
-import { Dashboard } from "./components/Dashboard";
-import { AuthProvider } from "./context/AuthProvider";
-import "./App.css"
+import { ProtectedRoute } from "./components/wrapper-components/ProtectedRoute";
+import { Dashboard } from "./pages/Dashboard";
+import { CombinedProviders } from "./context/CombinedProvider";
+import { RedirectionRoute } from "./components/wrapper-components/RedirectionRoute";
+import { Home } from "./pages/Home";
+import "./App.css";
 
 export const App = () => {
   return (
-    <AuthProvider>
+    <CombinedProviders>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/login" element={<LogIn />} />
+          <Route path="/" element={<Home/>}/>
+          <Route
+            path="/login"
+            element={
+              <RedirectionRoute>
+                <LogIn />
+              </RedirectionRoute>
+            }
+          />
           <Route
             path="/dashboard"
             element={
@@ -27,6 +37,6 @@ export const App = () => {
         </Routes>
         <AppFooter />
       </BrowserRouter>
-    </AuthProvider>
+    </CombinedProviders>
   );
-}
+};

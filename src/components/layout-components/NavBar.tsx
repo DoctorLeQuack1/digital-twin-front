@@ -1,11 +1,11 @@
 
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle, createTheme, ThemeProvider } from "flowbite-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthProvider";
 
 export const NavBar = () => {
 
-    const { isAuth } = useAuth();
+    const { isAuth, setIsAuth } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -24,15 +24,19 @@ export const NavBar = () => {
 
     const signOut = (e: any) => {
         e.preventDefault();
-        localStorage.clear();
         navigate("/");
+
+        setTimeout(() => {
+            localStorage.clear(); // Se ejecuta después de la navegación
+            setIsAuth(false);
+        }, 1); // 
     };
 
     let logInSignInButton = null;
 
     if (location.pathname !== "/login" && !isAuth) {
         logInSignInButton = (<div className="flex md:order-2"> <Button onClick={(e) => { navigateLogin(e, "/login") }}>Log In</Button></div>);
-    } else if (location.pathname !== "/login" && isAuth){
+    } else if (location.pathname !== "/login" && isAuth) {
         logInSignInButton = (<div className="flex md:order-2"> <Button onClick={(e) => { signOut(e) }}>Sign Out</Button></div>);
     }
 
@@ -50,6 +54,9 @@ export const NavBar = () => {
                     <NavbarToggle />
 
                     <NavbarCollapse>
+                        {isAuth && <NavbarLink onClick={(e) => { navigateLogin(e, "/dashboard") }}>
+                            Dashboard
+                        </NavbarLink>}
                         <NavbarLink onClick={(e) => { navigateLogin(e, "/") }}>
                             Home
                         </NavbarLink>
