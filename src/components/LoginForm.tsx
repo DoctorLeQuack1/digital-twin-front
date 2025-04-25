@@ -39,7 +39,12 @@ export const LoginForm = () => {
         email: "",
         password : ""
       });
-      console.log(response.data);
+      if (response.status == "200") {
+        console.log(response.data);
+        localStorage.setItem('JWT', response.data.token);
+      } else {
+        console.log("Something went wrong.");
+      }
     } catch (error) {
       console.log(`Something went wrong.`)
     }finally {

@@ -7,8 +7,11 @@ interface ProtectedRouteProps {
   }
   
   export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('JWT');
 
+
+
+  console.log(`Your auth token is: ${token}`);
   if (!token) {
     return <Navigate to="/404" replace />;
   }
