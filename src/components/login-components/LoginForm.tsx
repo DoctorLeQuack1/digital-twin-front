@@ -4,7 +4,6 @@ import { useState } from "react";
 import { loginFunction } from "../../api/user_login";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthProvider";
-import { auth_user } from "../../api/auth_user";
 
 export const LoginForm = () => {
 

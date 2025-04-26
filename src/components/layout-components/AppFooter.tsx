@@ -1,4 +1,4 @@
-import { Button, Footer, createTheme, ThemeProvider, FooterBrand, FooterDivider, FooterCopyright } from "flowbite-react";
+import { Button, Footer, createTheme, ThemeProvider, FooterDivider, FooterCopyright } from "flowbite-react";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
 
 export const AppFooter = () => {

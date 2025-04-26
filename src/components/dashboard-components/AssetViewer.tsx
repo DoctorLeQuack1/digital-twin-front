@@ -1,8 +1,9 @@
-export const AssetViewer = (props : any) => {
-
+export const AssetViewer = (props: any) => {
   console.log(props.value);
   return (
     <div className="w-full h-full">
+      {/* Ignoramos el error de TypeScript sobre model-viewer */}
+      {/* @ts-ignore */}
       <model-viewer
         src={props.value}
         alt="A 3D model"
@@ -13,6 +14,7 @@ export const AssetViewer = (props : any) => {
           height: "100%",
         }}
       >
+        {/* @ts-ignore */}
       </model-viewer>
     </div>
   );
