@@ -9,7 +9,7 @@ export const auth_user = async () => {
   }
 
   try {
-    const response = await axios.get("http://localhost:3001/auth/validate", {
+    const response = await axios.get("https://digital-twin-backend-e5h4.onrender.com/auth/validate", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -11,7 +11,7 @@ export const get_asset = async () => {
     }
 
     try {
-        const response = await axios.get("http://localhost:3001/api/asset", {
+        const response = await axios.get("https://digital-twin-backend-e5h4.onrender.com/api/asset", {
             headers: {
                 Authorization: `Bearer ${token}`,
                 UserEmail: user_email
