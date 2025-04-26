@@ -1,8 +1,10 @@
-export const AssetViewer = () => {
+export const AssetViewer = (props : any) => {
+
+  console.log(props.value);
   return (
     <div className="w-full h-full">
       <model-viewer
-        src="/Factory.glb"
+        src={props.value}
         alt="A 3D model"
         camera-controls
         auto-rotate

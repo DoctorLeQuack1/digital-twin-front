@@ -9,7 +9,7 @@ export const auth_user = async () => {
   }
 
   try {
-    const response = await axios.get("http://localhost:3001/auth/validation", {
+    const response = await axios.get("http://localhost:3001/auth/validate", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -17,9 +17,9 @@ export const auth_user = async () => {
 
     // Aquí puedes adaptar según lo que devuelve tu backend
     console.log(response.status)
-    return response.status === 200;
+    return response.data.valid && response.status === 200;
   } catch (error: any) {
-    console.error("Validation failed:");
+    console.error(`Validation failed: ${error}`);
     return false;
   }
 };
