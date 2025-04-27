@@ -2,7 +2,7 @@ import { Alert } from "flowbite-react";
 
 export const AlertContact = (props: any) => {
   return (
-    <Alert color="success" onDismiss={() => {
+    <Alert  color="success" onDismiss={() => {
         props.submit(false);
         //return alert('Alert dismissed!');
         }}>

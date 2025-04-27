@@ -29,10 +29,9 @@ export const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const forms = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e: FormEvent) => {
-    e.preventDefault();
+  const sendEmail = () => {
+    console.log(forms.current)
     if (forms.current) {
-      console.log(forms.current)
     emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
@@ -54,9 +53,11 @@ export const Contact = () => {
 
   return (
     <div className="h-screen" style={{ paddingLeft: "35%" }}>
-      {isSubmitted && <AlertContact submit={setIsSubmitted} />}
       <div style={styles.div}>
         <h1 style={styles.h1}>shoot us a message</h1>
+      </div>
+      <div style={{width: '53%'}}>
+        {isSubmitted && <AlertContact submit={setIsSubmitted} />}
       </div>
       <div style={styles.formDiv}>
         <form ref={forms} className="flex max-w-md flex-col gap-4">
@@ -114,7 +115,7 @@ export const Contact = () => {
             <Textarea name="message" id="comment" placeholder="Leave a comment..." rows={4} />
           </div>
           <div className="flex items-center gap-2"></div>
-          <Button type="submit" onClick={sendEmail}>
+          <Button type="submit" onSubmit={sendEmail}>
             Submit
           </Button>
         </form>
