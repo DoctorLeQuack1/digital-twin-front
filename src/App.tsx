@@ -7,6 +7,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { CombinedProviders } from "./context/CombinedProvider";
 import { RedirectionRoute } from "./components/wrapper-components/RedirectionRoute";
 import { Home } from "./pages/Home";
+import { Contact } from "./pages/Contact";
 import "./App.css";
 
 export const App = () => {
@@ -16,6 +17,7 @@ export const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/contact" element={<Contact/>}/>
           <Route
             path="/login"
             element={

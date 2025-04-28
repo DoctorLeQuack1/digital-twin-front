@@ -60,8 +60,7 @@ export const NavBar = () => {
                         <NavbarLink onClick={(e) => { navigateLogin(e, "/") }}>
                             Home
                         </NavbarLink>
-                        <NavbarLink onClick={(e) => { navigateLogin(e, "/") }}>About</NavbarLink>
-                        <NavbarLink onClick={(e) => { navigateLogin(e, "/") }}>Contact</NavbarLink>
+                        <NavbarLink onClick={(e) => { navigateLogin(e, "/contact") }}>Contact</NavbarLink>
                     </NavbarCollapse>
                 </Navbar>
             </ThemeProvider>
