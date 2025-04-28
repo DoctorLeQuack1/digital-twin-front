@@ -29,8 +29,11 @@ export const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const forms = useRef<HTMLFormElement>(null);
 
-  const sendEmail = () => {
-    console.log(forms.current)
+  const sendEmail = (e: FormEvent) => {
+    e.preventDefault()
+    console.log(forms.current ? forms.current : 'No existe el forms')
+    console.log(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, import.meta.env.VITE_PUBLIC_KEY);
+    
     if (forms.current) {
     emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID,
@@ -60,7 +63,7 @@ export const Contact = () => {
         {isSubmitted && <AlertContact submit={setIsSubmitted} />}
       </div>
       <div style={styles.formDiv}>
-        <form ref={forms} className="flex max-w-md flex-col gap-4">
+        <form ref={forms} className="flex max-w-md flex-col gap-4"  onSubmit={sendEmail}>
           <div>
             <div className="mb-3 block">
               <Label htmlFor="base">Full name*</Label>
@@ -71,7 +74,7 @@ export const Contact = () => {
             <div className="mb-3 block">
               <Label htmlFor="email2">Email*</Label>
             </div>
-            <TextInput name="email"
+            <TextInput name="email2"
               id="email2"
               type="email"
               placeholder="name@flowbite.com"
@@ -98,7 +101,7 @@ export const Contact = () => {
               </svg>
             </div>
             <input
-              name="phone"
+              name="phone-input"
               type="text"
               id="phone-input"
               aria-describedby="helper-text-explanation"
@@ -112,10 +115,10 @@ export const Contact = () => {
             <div className="mb-2 block">
               <Label htmlFor="comment">Your message</Label>
             </div>
-            <Textarea name="message" id="comment" placeholder="Leave a comment..." rows={4} />
+            <Textarea name="comment" id="comment" placeholder="Leave a comment..." rows={4} />
           </div>
           <div className="flex items-center gap-2"></div>
-          <Button type="submit" onSubmit={sendEmail}>
+          <Button type="submit">
             Submit
           </Button>
         </form>
