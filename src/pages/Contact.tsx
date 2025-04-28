@@ -31,9 +31,7 @@ export const Contact = () => {
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault()
-    console.log(forms.current ? forms.current : 'No existe el forms')
-    console.log(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, import.meta.env.VITE_PUBLIC_KEY);
-    
+
     if (forms.current) {
     emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID,
