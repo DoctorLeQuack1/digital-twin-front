@@ -1,54 +1,72 @@
-# React + TypeScript + Vite
+# 🌐 Real-Time 3D Asset Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+### What is the project motivation?
+This project was created to provide a real-time visualization platform where users can monitor their physical assets using 3D models. By rendering digital twins of each asset, the system is designed to display live data such as processing metrics, physical measurements, among others, making it easier to track operational health and performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Why did you build this project?
+To explore the integration of 3D technologies with real-time data tracking, while offering users a visually rich and centralized platform to manage and monitor unique assets. It also serves as a foundation for future development where sensor insights will be layered onto each model in a clear, informative interface.
 
-## Expanding the ESLint configuration
+### What problem does it solve?
+Asset tracking tools typically rely on tabular or numerical dashboards, which can be hard to interpret in context. This application solves that by allowing users to see their assets visually, in 3D, and eventually correlate their physical state with live performance data in an intuitive way.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### What did you learn?
+- How to embed and interact with 3D models in web applications.
+- Designing scalable UI systems for real-time data tracking.
+- Planning an architecture that accommodates per-user model assignment.
+- Establishing a foundation for integrating IoT data streams and real-time updates.
+- Styling and animating UI components using TailwindCSS.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Table of Contents
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [Test](#test)
+- [License](#license)
+- [Questions](#questions)
+- [Deployed Page](#deployed-page)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The platform is already deployed and ready for use.  
+Just visit the live application and begin exploring the interactive 3D experience.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Features
+
+- **3D Model Integration:** Visualize each asset as an interactive 3D model.
+- **User-Specific Models:** Assets are assigned individually to users for personalized tracking.
+- **Tailwind CSS Styling:** A clean and responsive UI using modern utility-first styling.
+- **Model-Viewer Web Component:** Integrated support for `.glb` models with camera controls and auto-rotation.
+- **Future Support for Sensor Data:** Architecture built to support temperature, processing, and other live metrics.
+- **Fully Deployed:** No local installation required—just access via the browser.
+
+## Contributing
+
+The project is currently in early development and contributions are not being accepted at the moment. However, suggestions and feedback are welcome and encouraged.
+
+## Test
+
+Testing is not yet implemented. Once real-time data integration is in place, future development will include:
+- Component interaction testing
+- Model rendering validation
+- Real-time data simulation testing
+
+## License
+
+This project will be licensed in the near future. Stay tuned.
+
+## Questions
+
+Want to learn more or collaborate?  
+📧 [sergioa430@gmail.com](mailto:sergioa430@gmail.com)
+📧 [sergioa430@gmail.com](mailto:sergioa430@gmail.com)
+📧 [sergioa430@gmail.com](mailto:sergioa430@gmail.com)
+
+GitHub: [DoctorLeQuack1](https://github.com/DoctorLeQuack1)
+Repos: [Digital Twin Frontend](https://github.com/DoctorLeQuack1/digital-twin-front), [Digital Twin Backend](https://github.com/DoctorLeQuack1/digital-twin-backend)
+
+## Deployed Page
+
+Check out the live version of the project here:  
+🌐 [WOOFQUEST](https://woof-quest.web.app/)
