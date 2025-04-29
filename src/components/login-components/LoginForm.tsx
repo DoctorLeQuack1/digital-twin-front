@@ -4,6 +4,7 @@ import { useState } from "react";
 import { loginFunction } from "../../api/user_login";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthProvider";
+import { IncorrectLogin } from "./IncorrectLogin";
 
 export const LoginForm = () => {
 
@@ -13,6 +14,8 @@ export const LoginForm = () => {
     email  : "",
     password: "",
   });
+
+  const [incorrectLogin, setIncorrectLogin] = useState(false);
   
   const customTheme = createTheme({
     textInput: {
@@ -49,18 +52,15 @@ export const LoginForm = () => {
         localStorage.setItem('UserName', response.data.user_name);
         localStorage.setItem('UserLastName', response.data.user_last_name);
         localStorage.setItem('Email', response.data.user_email);
-
-        
+        navigate("/dashboard");
         // Once we have the token, we proceed to modify our isAuth value
       } 
-      
       else {
+        setIncorrectLogin(true);
         console.log("Something went wrong.");
       }
     } catch (error) {
       console.log(`Something went wrong.`)
-    }finally {
-      navigate("/dashboard");
     }
   };
 
@@ -82,6 +82,9 @@ export const LoginForm = () => {
       onSubmit={(e : any) => submitHandler(e)}
       className="flex max-w-md flex-col gap-4">
         <div>
+          <div className="self-center">
+            {incorrectLogin && <IncorrectLogin incorrect={setIncorrectLogin}/>}
+          </div>
           <div className="mb-2 block">
             <Label htmlFor="email1">Your email</Label>
           </div>

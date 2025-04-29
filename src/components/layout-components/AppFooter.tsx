@@ -22,9 +22,6 @@ export const AppFooter = () => {
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white text-black">WOOFQUEST</span>
               </div>
               <div className="mt-4 sm:mt-0 flex flex-col sm:flex-row items-center gap-4">
-                <Button color="light" href="/about">
-                  About Us
-                </Button>
                 <Button color="light" href="https://github.com/DoctorLeQuack1/digital-twin-front" className="flex items-center gap-2">
                   <FaGithub className="h-5 w-5" />
                   Repository
