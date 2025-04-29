@@ -25,7 +25,7 @@ export const AppFooter = () => {
                 <Button color="light" href="/about">
                   About Us
                 </Button>
-                <Button color="light" href="https://github.com/your-repo" className="flex items-center gap-2">
+                <Button color="light" href="https://github.com/DoctorLeQuack1/digital-twin-front" className="flex items-center gap-2">
                   <FaGithub className="h-5 w-5" />
                   Repository
                 </Button>

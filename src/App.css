@@ -1,3 +1,32 @@
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
+
+
+#custom-container {
+    display: flex;
+    /* Centrado horizontal y vertical */
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;      /* Centra verticalmente */
+    position: relative;
+    /* Oculta el exceso del gradiente animado */
+    overflow: hidden;
+    border-radius: 10px; /* Para forma circular (opcional) */
+    padding: 0.3rem;
+  }
+  
+  #custom-container::before {
+    content: "";
+    position: absolute;
+    /* Cubre todo el contenedor y más (para que el giro no muestre bordes) */
+    inset: -100%;
+    background: conic-gradient(rgb(0, 153, 255), #111827);
+    animation: rotar 4s linear infinite;
+    /* Asegura que esté detrás del contenido */
+    z-index: 0;
+  }  
+  
+  @keyframes rotar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
