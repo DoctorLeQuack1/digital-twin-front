@@ -44,7 +44,7 @@ export const NavBar = () => {
         <div className="sticky top-0 z-50 backdrop-blur-md">
             <ThemeProvider theme={customTheme}>
                 <Navbar fluid rounded>
-                    <NavbarBrand href="https://flowbite-react.com">
+                    <NavbarBrand>
                         <img src="/dog.png" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
                         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white text-black">WOOFQUEST</span>
                     </NavbarBrand>

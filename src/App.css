@@ -20,7 +20,7 @@
     position: absolute;
     /* Cubre todo el contenedor y más (para que el giro no muestre bordes) */
     inset: -100%;
-    background: conic-gradient(white, #111827);
+    background: conic-gradient(white, #111827, white, #111827, white, #111827, white, #111827, white, #111827);
     animation: rotar 4s linear infinite;
     /* Asegura que esté detrás del contenido */
     z-index: 0;
