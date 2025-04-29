@@ -60,7 +60,7 @@ This project will be licensed in the near future. Stay tuned.
 
 Want to learn more or collaborate?  
 📧 [sergioa430@gmail.com](mailto:sergioa430@gmail.com)
-📧 [sergioa430@gmail.com](mailto:sergioa430@gmail.com)
+📧 [luisubidia@gmail.com](mailto:luisubidia@gmail.com)
 📧 [sergioa430@gmail.com](mailto:sergioa430@gmail.com)
 
 GitHub: [DoctorLeQuack1](https://github.com/DoctorLeQuack1)
