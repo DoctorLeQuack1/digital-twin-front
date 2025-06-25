@@ -23,6 +23,7 @@ Asset tracking tools typically rely on tabular or numerical dashboards, which ca
 - [Features](#features)
 - [Contributing](#contributing)
 - [Test](#test)
+- [Technologies used](#technologises)
 - [License](#license)
 - [Questions](#questions)
 - [Deployed Page](#deployed-page)
@@ -59,6 +60,7 @@ Testing is not yet implemented. Once real-time data integration is in place, fut
 - Typesript
 - Mongo DB
 - GraphQL
+- Firebase
 
 ## License
 
