@@ -52,6 +52,14 @@ Testing is not yet implemented. Once real-time data integration is in place, fut
 - Model rendering validation
 - Real-time data simulation testing
 
+## Tecgnologies used
+
+- Javascript
+- React
+- Typesript
+- Mongo DB
+- GraphQL
+
 ## License
 
 This project will be licensed in the near future. Stay tuned.
