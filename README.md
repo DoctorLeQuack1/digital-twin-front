@@ -52,7 +52,7 @@ Testing is not yet implemented. Once real-time data integration is in place, fut
 - Model rendering validation
 - Real-time data simulation testing
 
-## Tecgnologies used
+## Technologies used
 
 - Javascript
 - React
