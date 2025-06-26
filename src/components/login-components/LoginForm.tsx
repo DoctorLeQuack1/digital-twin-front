@@ -45,13 +45,13 @@ export const LoginForm = () => {
       });
 
       // If the response is successful, then we store the token on localstorage
-      if (response?.status == "200") {
+      if (response.token && response.user) {
         setIsAuth(true);
         console.log(response.data);
-        localStorage.setItem('JWT', response.data.token);
-        localStorage.setItem('UserName', response.data.user_name);
-        localStorage.setItem('UserLastName', response.data.user_last_name);
-        localStorage.setItem('Email', response.data.user_email);
+        localStorage.setItem('JWT', response.token);
+        localStorage.setItem('UserName', response.user.name);
+        localStorage.setItem('UserLastName', response.user.last_name);
+        localStorage.setItem('Email', response.user.email);
         navigate("/dashboard");
         // Once we have the token, we proceed to modify our isAuth value
       } 

@@ -15,8 +15,8 @@ export const Dashboard = () => {
         const fetchAsset = async () => {
             try {
                 const result = await get_asset();
-                console.log(`This is my result: ${result.asset.asset_link}`)
-                setAsset(result.asset.asset_link+"?alt=media");
+                console.log(`This is my result: ${result}`)
+                setAsset(result+"?alt=media");
             } catch (err) {
                 console.error("Error fetching asset:", err);
                 setAsset(undefined);
