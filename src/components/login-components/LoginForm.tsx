@@ -45,7 +45,7 @@ export const LoginForm = () => {
       });
 
       // If the response is successful, then we store the token on localstorage
-      if (response.token && response.user) {
+      if (response && response.token && response.user) {
         setIsAuth(true);
         console.log(response.data);
         localStorage.setItem('JWT', response.token);
