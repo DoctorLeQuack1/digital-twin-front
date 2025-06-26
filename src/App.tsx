@@ -9,6 +9,7 @@ import { RedirectionRoute } from "./components/wrapper-components/RedirectionRou
 import { Home } from "./pages/Home";
 import { Contact } from "./pages/Contact";
 import "./App.css";
+import { SignUp } from "./pages/SignUp";
 
 export const App = () => {
   return (
@@ -21,8 +22,16 @@ export const App = () => {
           <Route
             path="/login"
             element={
-              <RedirectionRoute>
+              <RedirectionRoute redirectTo="/dashboard">
                 <LogIn />
+              </RedirectionRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <RedirectionRoute redirectTo="/dashboard">
+                <SignUp />
               </RedirectionRoute>
             }
           />

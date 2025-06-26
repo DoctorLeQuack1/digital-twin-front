@@ -1,4 +1,3 @@
-
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle, createTheme, ThemeProvider } from "flowbite-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
@@ -35,9 +34,18 @@ export const NavBar = () => {
     let logInSignInButton = null;
 
     if (location.pathname !== "/login" && !isAuth) {
-        logInSignInButton = (<div className="flex md:order-2"> <Button onClick={(e) => { navigateLogin(e, "/login") }}>Log In</Button></div>);
+        logInSignInButton = (
+            <div className="flex md:order-2 gap-2">
+                <Button onClick={(e) => { navigateLogin(e, "/login") }}>Log In</Button>
+                <Button onClick={(e) => { navigateLogin(e, "/signup") }}>Sign Up</Button>
+            </div>
+        );
     } else if (location.pathname !== "/login" && isAuth) {
-        logInSignInButton = (<div className="flex md:order-2"> <Button onClick={(e) => { signOut(e) }}>Sign Out</Button></div>);
+        logInSignInButton = (
+            <div className="flex md:order-2">
+                <Button onClick={(e) => { signOut(e) }}>Sign Out</Button>
+            </div>
+        );
     }
 
     return (
