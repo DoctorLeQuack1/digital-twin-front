@@ -21,6 +21,7 @@ Asset tracking tools typically rely on tabular or numerical dashboards, which ca
 ## Table of Contents
 - [Usage](#usage)
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [Test](#test)
 - [Technologies used](#technologises)
@@ -42,6 +43,36 @@ Just visit the live application and begin exploring the interactive 3D experienc
 - **Future Support for Sensor Data:** Architecture built to support temperature, processing, and other live metrics.
 - **Fully Deployed:** No local installation required—just access via the browser.
 
+## Screenshots
+
+### Landing screen
+<img src="images/landingScreen.png" alt="Alt text" width="800"/> 
+
+Landing page showcasing the main value proposition 
+
+
+
+### Login screen
+<img src="images/loginScreen.png" alt="Alt text" width="800"/> 
+
+Secure authentication system with modern UI design
+
+
+
+### Dashboard screen
+<img src="images/dashboardScreen.png" alt="Alt text" width="800"/>
+
+Personalized dashboard showing user-specific 3D asset models
+
+
+
+### Contact screen
+<img src="images/contactScreen.png" alt="Alt text" width="800"/>
+
+
+User-friendly contact form for inquiries and support
+
+
 ## Contributing
 
 The project is currently in early development and contributions are not being accepted at the moment. However, suggestions and feedback are welcome and encouraged.
@@ -57,10 +88,14 @@ Testing is not yet implemented. Once real-time data integration is in place, fut
 
 - Javascript
 - React
+- Vite
 - Typesript
 - Mongo DB
 - GraphQL
 - Firebase
+- EmailJS
+- Flowbite React
+- GCP
 
 ## License
 
